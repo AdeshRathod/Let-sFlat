@@ -128,15 +128,14 @@ export default function SettingsPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">Account Settings</h1>
-      
-      {/* Replace Tabs with CustomTabs */}
+
       <CustomTabs defaultValue="profile" className="space-y-8">
         <CustomTabsList>
           <CustomTabsTrigger value="profile">Profile</CustomTabsTrigger>
           <CustomTabsTrigger value="password">Password</CustomTabsTrigger>
           <CustomTabsTrigger value="notifications">Notifications</CustomTabsTrigger>
         </CustomTabsList>
-        
+
         <CustomTabsContent value="profile">
           <Card>
             <CardHeader>
@@ -160,7 +159,6 @@ export default function SettingsPage() {
                   <div className="space-y-4 flex-1">
                     <div className="space-y-2">
                       <Label htmlFor="name">Full Name</Label>
-                      {/* Replace Input with CustomInput */}
                       <CustomInput
                         id="name"
                         value={name}
@@ -191,7 +189,6 @@ export default function SettingsPage() {
                 </div>
               </CardContent>
               <CardFooter>
-                {/* Replace Button with CustomButton */}
                 <CustomButton type="submit" disabled={isSubmitting}>
                   {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   {isSubmitting ? "Saving..." : "Save Changes"}
@@ -200,7 +197,7 @@ export default function SettingsPage() {
             </form>
           </Card>
         </CustomTabsContent>
-        
+
         <CustomTabsContent value="password">
           <Card>
             <CardHeader>
@@ -232,9 +229,26 @@ export default function SettingsPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                
-</CustomTabsContent>
-        
+                  <Label htmlFor="confirm-password">Confirm Password</Label>
+                  <CustomInput
+                    id="confirm-password"
+                    type="password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                  />
+                </div>
+              </CardContent>
+              <CardFooter>
+                <CustomButton type="submit" disabled={isSubmitting}>
+                  {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  {isSubmitting ? "Saving..." : "Save Changes"}
+                </CustomButton>
+              </CardFooter>
+            </form>
+          </Card>
+        </CustomTabsContent>
+
         <CustomTabsContent value="notifications">
           <Card>
             <CardHeader>
